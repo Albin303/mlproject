@@ -1,0 +1,13 @@
+==> 2025-06-09 17:40:46 <==
+# cmd: C:\Users\Albin\anaconda3\Scripts\conda-script.py create -p venv python==3.8 -ycls
+# conda version: 24.11.3
++defaults/win-64::ca-certificates-2025.2.25-haa95532_0
++defaults/win-64::openssl-1.1.1w-h2bbff1b_0
++defaults/win-64::pip-24.2-py38haa95532_0
++defaults/win-64::python-3.8.0-hff0d562_2
++defaults/win-64::setuptools-75.1.0-py38haa95532_0
++defaults/win-64::sqlite-3.45.3-h2bbff1b_0
++defaults/win-64::vc-14.42-haa95532_5
++defaults/win-64::vs2015_runtime-14.42.34433-hbfb602d_5
++defaults/win-64::wheel-0.44.0-py38haa95532_0
+# update specs: ['python==3.8']
