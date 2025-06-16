@@ -1,2 +1,8 @@
 
 venv/
+.artifacts
+.env
+ENV/
+env.bak/
+venv.bak/
+
