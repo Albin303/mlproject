@@ -10,6 +10,7 @@ Requires-Dist: matplotlib
 Requires-Dist: scikit-learn
 Requires-Dist: catboost
 Requires-Dist: xgboost
+Requires-Dist: dill
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist

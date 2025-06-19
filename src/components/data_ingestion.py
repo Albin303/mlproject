@@ -1,7 +1,9 @@
 import os
 import sys
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from src.exception import CustomException
 from src.logger import logging
+from src.components.data_transformation import DataTransformation 
 
 import pandas as pd
 import numpy as np
@@ -18,7 +20,7 @@ class DataIngestion:
     def __init__(self):
         self.ingestion_config = DataIngestionConfig()
 
-    def initiate_data_ingeestion(self):
+    def initiate_data_ingestion(self):
         logging.info("Entered the Data Ingestion method/component")
         try:
             df = pd.read_csv('notebook\\data\\StudentsPerformance.csv')
@@ -43,5 +45,8 @@ class DataIngestion:
             raise CustomException(e, sys)
 
 if __name__ == "__main__":
-    obj = DataIngestion()
-    obj.initiate_data_ingeestion()
+    ingestion = DataIngestion()
+    train_path, test_path = ingestion.initiate_data_ingestion()      
+    
+    transformer = DataTransformation()                              
+    transformer.initiate_data_transformation(train_path, test_path)

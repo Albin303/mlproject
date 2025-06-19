@@ -1,0 +1,8 @@
+[2025-06-18 17:07:03,491] 23 root - INFO - Entered the Data Ingestion method/component
+[2025-06-18 17:07:03,549] 26 root - INFO - Read the dataset as DataFrame
+[2025-06-18 17:07:03,550] 30 root - INFO - Train-test split initiated
+[2025-06-18 17:07:03,594] 36 root - INFO - Ingestion of the data is completed
+[2025-06-18 17:07:03,596] 51 root - INFO - Entered the Data Transformation method/component
+[2025-06-18 17:07:03,658] 55 root - INFO - Read train and test data for transformation.
+[2025-06-18 17:07:03,659] 25 root - INFO - Obtaining data transformer object
+[2025-06-18 17:07:03,660] 45 root - INFO - Data transformer object obtained successfully.

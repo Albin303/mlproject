@@ -1,0 +1,15 @@
+[2025-06-17 17:47:27,805] 25 root - INFO - ML Project pipeline started from main.py
+[2025-06-17 17:47:27,806] 29 root - INFO - Starting Data Ingestion stage...
+[2025-06-17 17:47:27,806] 23 root - INFO - Entered the Data Ingestion method/component
+[2025-06-17 17:47:27,808] 26 root - INFO - Read the dataset as DataFrame
+[2025-06-17 17:47:27,809] 30 root - INFO - Train-test split initiated
+[2025-06-17 17:47:27,814] 36 root - INFO - Ingestion of the data is completed
+[2025-06-17 17:47:27,814] 32 root - INFO - Data Ingestion completed.
+[2025-06-17 17:47:27,814] 33 root - INFO - Train data saved to: artifacts\train.csv
+[2025-06-17 17:47:27,814] 34 root - INFO - Test data saved to: artifacts\test.csv
+[2025-06-17 17:47:27,815] 37 root - INFO - Starting Data Transformation stage...
+[2025-06-17 17:47:27,815] 51 root - INFO - Entered the Data Transformation method/component
+[2025-06-17 17:47:27,834] 55 root - INFO - Read train and test data for transformation.
+[2025-06-17 17:47:27,834] 25 root - INFO - Obtaining data transformer object
+[2025-06-17 17:47:27,834] 45 root - INFO - Data transformer object obtained successfully.
+[2025-06-17 17:47:27,835] 54 root - ERROR - A custom error occurred during the pipeline execution: Error occurred in python script name [D:\ml project\src\components\data_transformation.py] line number [60] error message ["['math_score'] not found in axis"]
