@@ -1,11 +1,9 @@
 import os
 import sys
-import numpy as np
-import pandas as pd
 import dill
-from sklearn.model_selection import train_test_split
-from src.exception import CustomException
+from sklearn.model_selection import GridSearchCV
 from sklearn.metrics import r2_score
+from src.exception import CustomException
 
 def save_object(file_path, obj):
     try:
@@ -16,16 +14,19 @@ def save_object(file_path, obj):
     except Exception as e:
         raise CustomException(e, sys)
 
-def evaluate_models(X_train, Y_train, x_test, y_test, models):
+def evaluate_models(X_train, y_train, x_test, y_test, models, param):
     try:
         report = {}
+        fitted_models={}
         for model_name, model in models.items():
-            model.fit(X_train, Y_train)  # Use parameters as defined
-            Y_train_pred = model.predict(X_train)
-            Y_test_pred = model.predict(x_test)
-            train_model_score = r2_score(Y_train, Y_train_pred)
-            test_model_score = r2_score(y_test, Y_test_pred)
-            report[model_name] = test_model_score  # Correctly add to dict
-        return report  # Return after all models are evaluated
+            para = param[model_name]
+            gs = GridSearchCV(model, para, cv=3)
+            gs.fit(X_train, y_train)
+            best_model = gs.best_estimator_
+            y_test_pred = best_model.predict(x_test)
+            test_model_score = r2_score(y_test, y_test_pred)
+            report[model_name] = test_model_score
+            fitted_models[model_name]=best_model
+        return report,fitted_models
     except Exception as e:
         raise CustomException(e, sys)
