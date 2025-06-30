@@ -1,6 +1,6 @@
 
 venv/
-.artifacts
+
 .env
 ENV/
 env.bak/

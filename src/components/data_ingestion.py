@@ -3,7 +3,9 @@ import sys
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 from src.exception import CustomException
 from src.logger import logging
-from src.components.data_transformation import DataTransformation 
+from src.components.data_transformation import DataTransformation
+from src.components.model_trainer import ModelTrainerConfig
+from src.components.model_trainer import ModelTrainer
 
 import pandas as pd
 import numpy as np
@@ -49,4 +51,8 @@ if __name__ == "__main__":
     train_path, test_path = ingestion.initiate_data_ingestion()      
     
     transformer = DataTransformation()                              
-    transformer.initiate_data_transformation(train_path, test_path)
+    train_arr, test_arr, preprocessor_file = transformer.initiate_data_transformation(train_path, test_path)
+
+    
+    modeltrainer=ModelTrainer()
+    print( modeltrainer.intiate_model_trainer(train_arr,test_arr))

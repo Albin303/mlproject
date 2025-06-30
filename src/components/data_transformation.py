@@ -25,7 +25,7 @@ class DataTransformation:
         logging.info("Obtaining data transformer object") # Added a log for clarity
         try:
             numerical_columns = ["writing_score", "reading_score"]
-            categorical_columns = ["gender", "race_ethnicity", "arental_level_of_education", "lunch", "test_preparation_course"]
+            categorical_columns = ["gender", "race_ethnicity", "parental_level_of_education", "lunch", "test_preparation_course"]
 
             num_pipeline = Pipeline([
                 ("imputer", SimpleImputer(strategy="median")),

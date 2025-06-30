@@ -1,0 +1,14 @@
+[2025-06-30 17:19:58,265] 26 root - INFO - Entered the Data Ingestion method/component
+[2025-06-30 17:19:58,269] 29 root - INFO - Read the dataset as DataFrame
+[2025-06-30 17:19:58,269] 33 root - INFO - Train-test split initiated
+[2025-06-30 17:19:58,274] 39 root - INFO - Ingestion of the data is completed
+[2025-06-30 17:19:58,275] 51 root - INFO - Entered the Data Transformation method/component
+[2025-06-30 17:19:58,295] 59 root - INFO - Read train and test data for transformation.
+[2025-06-30 17:19:58,295] 25 root - INFO - Obtaining data transformer object
+[2025-06-30 17:19:58,296] 45 root - INFO - Data transformer object obtained successfully.
+[2025-06-30 17:19:58,296] 69 root - INFO - Splitting features and target columns.
+[2025-06-30 17:19:58,308] 73 root - INFO - Applying preprocessor object on training and testing data.
+[2025-06-30 17:19:58,308] 78 root - INFO - Combined processed features with target column.
+[2025-06-30 17:19:58,311] 85 root - INFO - Preprocessor object saved to: artifacts\proprocessor.pkl
+[2025-06-30 17:19:58,311] 25 root - INFO - spliting training data
+[2025-06-30 17:20:00,003] 60 root - INFO - Best Found model on both training and testing dataset
