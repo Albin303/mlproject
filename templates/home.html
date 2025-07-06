@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Exam Performance Indicator</title>
+    <!-- Bootstrap 5 CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts for Modern Typography -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600&family=Roboto&display=swap" rel="stylesheet">
+    <style>
+        body {
+            min-height: 100vh;
+            background: linear-gradient(135deg, #8ec5fc 0%, #e0c3fc 100%);
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.30);
+            box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+            backdrop-filter: blur(8px);
+            border-radius: 24px;
+            padding: 2.5rem 2rem;
+            max-width: 480px;
+            width: 100%;
+            border: 1px solid rgba(255,255,255,0.18);
+            transition: box-shadow 0.3s;
+        }
+        .glass-card:hover {
+            box-shadow: 0 12px 36px 0 rgba(31,38,135,0.45);
+        }
+        .login h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            text-align: center;
+            margin-bottom: 1.2rem;
+            color: #5a189a;
+        }
+        legend {
+            font-size: 1.2rem;
+            color: #3c096c;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        label.form-label {
+            font-weight: 600;
+            color: #4b006e;
+        }
+        .form-control, .form-select {
+            border-radius: 12px;
+            border: 1.5px solid #cdb4db;
+            margin-bottom: 1rem;
+            transition: border-color 0.2s;
+        }
+        .form-control:focus, .form-select:focus {
+            border-color: #7209b7;
+            box-shadow: 0 0 0 0.2rem rgba(114,9,183,0.15);
+        }
+        .btn-primary {
+            background: linear-gradient(90deg, #7209b7 0%, #f72585 100%);
+            border: none;
+            border-radius: 16px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            width: 100%;
+            padding: 0.75rem;
+            box-shadow: 0 4px 16px rgba(114,9,183,0.15);
+            transition: background 0.2s, transform 0.2s;
+        }
+        .btn-primary:hover {
+            background: linear-gradient(90deg, #f72585 0%, #7209b7 100%);
+            transform: translateY(-2px) scale(1.03);
+        }
+        h2 {
+            margin-top: 2rem;
+            text-align: center;
+            color: #560bad;
+            font-weight: 700;
+            letter-spacing: 1px;
+            background: rgba(255,255,255,0.5);
+            border-radius: 12px;
+            padding: 1rem;
+            box-shadow: 0 2px 8px rgba(90,24,154,0.08);
+        }
+        @media (max-width: 576px) {
+            .glass-card {
+                padding: 1.2rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="glass-card login">
+        <h1>
+            <i class="bi bi-bar-chart-line" style="color:#7209b7;"></i>
+            Student Exam Performance Indicator
+        </h1>
+        <form action="{{ url_for('predict_datapoint')}}" method="post" autocomplete="off">
+            <legend>Student Exam Performance Prediction</legend>
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <select class="form-select" name="gender" required>
+                    <option selected disabled value="">Select your Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Race or Ethnicity</label>
+                <select class="form-select" name="ethnicity" required>
+                    <option selected disabled value="">Select Ethnicity</option>
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Parental Level of Education</label>
+                <select class="form-select" name="parental_level_of_education" required>
+                    <option selected disabled value="">Select Parent Education</option>
+                    <option value="associate's degree">Associate's degree</option>
+                    <option value="bachelor's degree">Bachelor's degree</option>
+                    <option value="high school">High school</option>
+                    <option value="master's degree">Master's degree</option>
+                    <option value="some college">Some college</option>
+                    <option value="some high school">Some high school</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Lunch Type</label>
+                <select class="form-select" name="lunch" required>
+                    <option selected disabled value="">Select Lunch Type</option>
+                    <option value="free/reduced">Free/Reduced</option>
+                    <option value="standard">Standard</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Test Preparation Course</label>
+                <select class="form-select" name="test_preparation_course" required>
+                    <option selected disabled value="">Select Test Course</option>
+                    <option value="none">None</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Writing Score (out of 100)</label>
+                <input class="form-control" type="number" name="writing_score" placeholder="Enter your Writing Score" min="0" max="100" required>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Reading Score (out of 100)</label>
+                <input class="form-control" type="number" name="reading_score" placeholder="Enter your Reading Score" min="0" max="100" required>
+            </div>
+            <div class="mb-3">
+                <button class="btn btn-primary" type="submit">Predict your Maths Score</button>
+            </div>
+        </form>
+        {% if results %}
+        <h2>
+            <span style="font-size:1.1em;">The prediction is:</span><br>
+            <span style="font-size:2em;">{{ results }}</span>
+        </h2>
+        {% endif %}
+    </div>
+    <!-- Bootstrap Icons CDN (optional, for the chart icon) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+</body>
+</html>

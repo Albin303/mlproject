@@ -13,6 +13,7 @@ Requires-Dist: xgboost
 Requires-Dist: dill
 Requires-Dist: Lasso
 Requires-Dist: Ridge
+Requires-Dist: Flask
 Dynamic: author
 Dynamic: author-email
 Dynamic: requires-dist

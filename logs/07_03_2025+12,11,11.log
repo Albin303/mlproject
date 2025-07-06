@@ -1,0 +1,14 @@
+[2025-07-03 12:11:13,283] 26 root - INFO - Entered the Data Ingestion method/component
+[2025-07-03 12:11:13,287] 29 root - INFO - Read the dataset as DataFrame
+[2025-07-03 12:11:13,287] 33 root - INFO - Train-test split initiated
+[2025-07-03 12:11:13,292] 39 root - INFO - Ingestion of the data is completed
+[2025-07-03 12:11:13,292] 51 root - INFO - Entered the Data Transformation method/component
+[2025-07-03 12:11:13,314] 59 root - INFO - Read train and test data for transformation.
+[2025-07-03 12:11:13,314] 25 root - INFO - Obtaining data transformer object
+[2025-07-03 12:11:13,314] 45 root - INFO - Data transformer object obtained successfully.
+[2025-07-03 12:11:13,315] 69 root - INFO - Splitting features and target columns.
+[2025-07-03 12:11:13,326] 73 root - INFO - Applying preprocessor object on training and testing data.
+[2025-07-03 12:11:13,326] 78 root - INFO - Combined processed features with target column.
+[2025-07-03 12:11:13,328] 85 root - INFO - Preprocessor object saved to: artifacts\proprocessor.pkl
+[2025-07-03 12:11:13,329] 28 root - INFO - splitting training data
+[2025-07-03 12:11:27,807] 90 root - INFO - Best model: Ridge with R2 score: 0.8805671790733923

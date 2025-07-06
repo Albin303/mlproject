@@ -1,16 +1,19 @@
-import os
-import sys
-from dataclasses import dataclass
-from catboost import CatBoostRegressor
-from sklearn.ensemble import AdaBoostRegressor, GradientBoostingRegressor, RandomForestRegressor
-from sklearn.linear_model import LinearRegression, Lasso, Ridge
-from sklearn.neighbors import KNeighborsRegressor
-from sklearn.tree import DecisionTreeRegressor
-from xgboost import XGBRegressor
-from sklearn.metrics import r2_score
 from src.exception import CustomException
 from src.logger import logging
 from src.utilis import save_object, evaluate_models
+
+from sklearn.linear_model import LinearRegression, Lasso, Ridge
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.ensemble import RandomForestRegressor, AdaBoostRegressor, GradientBoostingRegressor
+from sklearn.neighbors import KNeighborsRegressor
+from sklearn.metrics import r2_score
+from xgboost import XGBRegressor
+from catboost import CatBoostRegressor
+
+from dataclasses import dataclass
+import numpy as np
+import os
+import sys
 
 @dataclass
 class ModelTrainerConfig:
@@ -37,12 +40,12 @@ class ModelTrainer:
                 "KNeighborsRegressor": KNeighborsRegressor(),
                 "RandomForestRegressor": RandomForestRegressor(),
                 "DecisionTreeRegressor": DecisionTreeRegressor(),
+                "GradientBoostingRegressor": GradientBoostingRegressor(),  # ✅ added
                 "XGBRegressor": XGBRegressor(),
                 "CatBoostRegressor": CatBoostRegressor(verbose=False),
                 "AdaBoostRegressor": AdaBoostRegressor()
             }
 
-            # HYPERPARAMETER TUNING
             params = {
                 "LinearRegression": {},
                 "Lasso": {},
@@ -68,29 +71,24 @@ class ModelTrainer:
                 }
             }
 
-            model_report ,fitted_models = evaluate_models(
+            model_report, fitted_models = evaluate_models(
                 X_train=X_train,
                 y_train=y_train,
-                x_test=X_test,
+                X_test=X_test,
                 y_test=y_test,
                 models=models,
-                param=params
+                params=params
             )
 
-            best_model_score = max(sorted(model_report.values()))
-            best_model_name = list(model_report.keys())[
-                list(model_report.values()).index(best_model_score)
-            ]
+            best_model_score = max(model_report.values())
+            best_model_name = list(model_report.keys())[list(model_report.values()).index(best_model_score)]
             best_model = fitted_models[best_model_name]
 
             if best_model_score < 0.6:
                 raise CustomException("No best Model found")
 
-            logging.info("Best Found model on both training and testing dataset")
-            save_object(
-                file_path=self.model_trainer_config.trained_model_file_path,
-                obj=best_model
-            )
+            logging.info(f"Best model: {best_model_name} with R2 score: {best_model_score}")
+            save_object(file_path=self.model_trainer_config.trained_model_file_path, obj=best_model)
 
             predicted = best_model.predict(X_test)
             r2_square = r2_score(y_test, predicted)
