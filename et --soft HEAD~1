@@ -1,0 +1,78 @@
+[33mcommit 779f372247fe7aac8808bf67df84b2473a7c3606[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Sun Jul 6 22:03:05 2025 +0530
+
+    Remove .venv from repository and add to .gitignore
+
+[33mcommit a85505eed7c68bece08d0175efffdb1bc9536ff4[m
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Sun Jul 6 21:43:29 2025 +0530
+
+    Remove .venv from repository and add to .gitignore
+
+[33mcommit 2ec1e2d70ee5cc241a029718d59a611600293e3c[m
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Sun Jul 6 21:25:27 2025 +0530
+
+    Deployement Model
+
+[33mcommit a1a4ecd0b12f45f548dfef62ddce6f397d0842eb[m
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Mon Jun 30 21:59:06 2025 +0530
+
+    Hyperparameter Tuning
+
+[33mcommit fdaeed47273f94af312a492d014c490b6c80eec9[m
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Mon Jun 30 17:27:28 2025 +0530
+
+    Model Trainer
+
+[33mcommit 6cc2f2ebb03ba2509e0ce161696ee67455377f80[m
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Thu Jun 19 14:34:43 2025 +0530
+
+    DataTransformationDone
+
+[33mcommit 3f6135b75ad8281931f6a6fe709af8d13388c3f0[m
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Mon Jun 16 14:17:17 2025 +0530
+
+    Added and updated data ingestion module and other files
+
+[33mcommit d5b3989592bc6eec40b8514b6f0d064ffc43a58e[m
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Mon Jun 16 12:30:28 2025 +0530
+
+    Added notebook folder with model training and data files
+
+[33mcommit d6e49d31487f4d75d7cc7e52738943d9c17cb598[m
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Mon Jun 16 12:25:14 2025 +0530
+
+    Removed venv from tracking and updated .gitignore
+
+[33mcommit 99ccdfbe63dddacfe6b0ffb1aef77fdbf34d65f8[m
+Merge: cad2317a 30474215
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Tue Jun 10 16:51:10 2025 +0530
+
+    logging and Exception
+
+[33mcommit cad2317a2af427919509571faccb76d9b9b0861f[m[33m ([m[1;32mmaster[m[33m)[m
+Author: Albin303 <abinbiju2401@gmail.com>
+Date:   Tue Jun 10 16:21:39 2025 +0530
+
+    logging and exception
+
+[33mcommit 30474215d4adb95f79de21241fcd563db36d2a31[m
+Author: Albin Biju <abinbiju2401@gmail.com>
+Date:   Mon Jun 9 18:39:53 2025 +0530
+
+    Create git ignore
+
+[33mcommit 78502fa84f5519553c1ac96906e30e54864475c5[m
+Author: Albin Biju <abinbiju2401@gmail.com>
+Date:   Mon Jun 9 16:40:02 2025 +0530
+
+    Initial commit
